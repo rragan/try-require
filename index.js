@@ -1,21 +1,29 @@
 'use strict';
 
-var tryRequire = function tryRequire(id) {
+var tryRequire = function tryRequire(id, req) {
+    var path;
+    var _req = req || require;
+
     try {
-        return require(id);
+        path = _req.resolve(id);
+    } catch (e) {}
+
+    if (path) {
+        return _req(path);
     }
-    catch (e) {}
 
     return undefined;
 }
 
-var resolve = function tryRequireResolve(id) {
-    try {
-        return require.resolve(id);
-    }
-    catch (e) {}
+var resolve = function tryRequireResolve(id, req) {
+    var path;
+    var _req = req || require;
 
-    return undefined;
+    try {
+        path = _req.resolve(id);
+    } catch (e) {}
+
+    return path;
 }
 
 tryRequire.resolve = resolve;

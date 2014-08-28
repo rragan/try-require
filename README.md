@@ -31,13 +31,15 @@ var maybe = tryRequire('maybeModule');
 ```javascript
 // Determine if a module is available without loading it into memory
 var tryRequire = require('try-require');
-var maybe = tryRequire.resolve('maybeModule');
+var maybePath = tryRequire.resolve('maybeModule');
 
-// If `maybeModule` is not available, then `maybe` will
-// be undefined. If available maybe holds the path to the module
-// and the module is not loaded.
-
+// If available, maybePath holds the path to the module
+// and the module is not loaded. If `maybeModule` is not available,
+// then `maybePath` will be undefined.
 ```
+
+Note that both tryRequire and tryRequire.resolve accept an optional second
+argument if you want to provide your own version of require.
 
 # License
 
