@@ -1,0 +1,13 @@
+{
+    "name": "try-require",
+    "version": "1.0.0",
+    "description": "Conditional load modules.",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/rragan/try-require.git"
+    },
+    "author": "Richard Ragan",
+    "dependencies": {},
+    "license": "MIT",
+    "main": "./index.js"
+}
