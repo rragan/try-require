@@ -13,7 +13,7 @@ var tryRequire = function tryRequire(id, req) {
     }
 
     return undefined;
-}
+};
 
 var resolve = function tryRequireResolve(id, req) {
     var path;
@@ -24,7 +24,7 @@ var resolve = function tryRequireResolve(id, req) {
     } catch (e) {}
 
     return path;
-}
+};
 
 tryRequire.resolve = resolve;
 module.exports = tryRequire;
