@@ -6,7 +6,9 @@ var tryRequire = function tryRequire(id, req) {
 
     try {
         path = _req.resolve(id);
-    } catch (e) {}
+    } catch (e) {
+        this.error = e;
+    }
 
     if (path) {
         return _req(path);
@@ -21,7 +23,9 @@ var resolve = function tryRequireResolve(id, req) {
 
     try {
         path = _req.resolve(id);
-    } catch (e) {}
+    } catch (e) {
+        this.error = e;
+    }
 
     return path;
 }
