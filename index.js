@@ -7,7 +7,7 @@ var tryRequire = function tryRequire(id, req) {
     try {
         path = _req.resolve(id);
     } catch (e) {
-        this.error = e;
+        module.exports.error = e;
     }
 
     if (path) {
@@ -24,7 +24,7 @@ var resolve = function tryRequireResolve(id, req) {
     try {
         path = _req.resolve(id);
     } catch (e) {
-        this.error = e;
+        module.exports.error = e;
     }
 
     return path;
