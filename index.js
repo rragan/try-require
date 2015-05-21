@@ -1,34 +1,44 @@
 'use strict';
 
-var tryRequire = function tryRequire(id, req) {
-    var path;
-    var _req = req || require;
+var lastError = null;
 
-    try {
-        path = _req.resolve(id);
-    } catch (e) {
-        this.error = e;
-    }
+var tryRequire = function tryRequire( id, req ) {
+	var path;
+	var _req = req || require;
 
-    if (path) {
-        return _req(path);
-    }
+	try {
+		path = _req.resolve( id );
 
-    return undefined;
+		lastError = null;
+	} catch ( e ) {
+		lastError = e;
+	}
+
+	if ( path ) {
+		return _req( path );
+	}
+
+	return undefined;
 };
 
-var resolve = function tryRequireResolve(id, req) {
-    var path;
-    var _req = req || require;
+var resolve = function tryRequireResolve( id, req ) {
+	var path;
+	var _req = req || require;
 
-    try {
-        path = _req.resolve(id);
-    } catch (e) {
-        this.error = e;
-    }
+	try {
+		path = _req.resolve( id );
 
-    return path;
+		lastError = null;
+	} catch ( e ) {
+		lastError = e;
+	}
+
+	return path;
 };
 
 tryRequire.resolve = resolve;
+tryRequire.lastError = function() {
+	return lastError;
+};
+
 module.exports = tryRequire;

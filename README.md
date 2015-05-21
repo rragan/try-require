@@ -38,8 +38,30 @@ var maybePath = tryRequire.resolve('maybeModule');
 // then `maybePath` will be undefined.
 ```
 
+Optionally, check require and resolution exceptions with lastError. Note that
+lastError will return null if no error has ever been triggered, or if the most
+recent call to require or resolve was successful.
+
+```javascript
+var tryRequire = require('try-require');
+var maybe = tryRequire('notAModule');
+
+console.error( tryRequire.lastError() );
+```
+
 Note that both tryRequire and tryRequire.resolve accept an optional second
 argument if you want to provide your own version of require.
+
+# Contribute
+
+If you would like to add to this library, please ensure that all existing test
+cases pass and that all new code has proper test coverage in test/all.test.js. 
+
+To run tests, simply execute:
+
+```bash
+npm test
+```
 
 # License
 
