@@ -63,6 +63,13 @@ To run tests, simply execute:
 npm test
 ```
 
+Also, match styles within the project where language of the file allows. Some 
+core styles to follow are:
+
+- indent lines with 4 spaces
+- spaces around parameters in function definitions and calls
+- opening/closing brackets on same line
+
 # License
 
 MIT
